@@ -82,8 +82,8 @@ const TodoList = () => {
 
     return (
 
-        <div className="card text-center mt-5" style={{ width: "40rem" }}>
-            <span className="title">todos</span>
+        <div className="card text-center mt-5" style={{ width: "40rem", overflowY: "auto", height: "26rem", backgroundColor: "#F2B39D", borderRadius: "80px 20px", border: "8px solid #EFDECD" }}>
+            <span className="title"><i>Todo List</i></span>
             <ul className="list-group list-group-flush ms-5 me-5 mb-5 border border-start border-end">
                 <li className=" box list-group-item border border-top">
                     <input className="d-flex ms-4 border-0"
@@ -92,8 +92,6 @@ const TodoList = () => {
                         value={inputValue}
                         onKeyDown={(e) => {
                             if (e.key === "Enter" && inputValue.trim()) {
-                                // setTodos(todos.concat(inputValue)); 
-                                // setInputValue("");
                                 createTodo();
                             }
                         }}
@@ -107,7 +105,6 @@ const TodoList = () => {
                             {item.label}
                             <button
                                 className="remove text-success"
-                                // onClick={() => setTodos(todos.filter((_, currentIndex) => index !== currentIndex))}
                                 onClick={() => deleteTodo(item.id)}
                             >
                                 X
@@ -121,4 +118,3 @@ const TodoList = () => {
 };
 
 export default TodoList;
-
