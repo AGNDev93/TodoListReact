@@ -24,3 +24,23 @@
 .tasks, li, input{
     font-size: 20px;
 }
+
+@keyframes rotate3D {
+    0% {
+        transform: rotate3d(1, 1, 0, 0deg);
+    }
+    100% {
+        transform: rotate3d(1, 1, 0, 360deg);
+    }
+}
+
+.card.rotate-todolist {
+    perspective: 1000px; 
+    animation: rotate3D 10s infinite linear;
+}
+
+.card.no-rotation {
+    animation: none;
+}
+
+
