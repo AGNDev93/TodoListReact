@@ -87,7 +87,7 @@ const TodoList = () => {
 
     return (
         <div className={`card ${isRotating ? 'rotate-todolist' : 'no-rotation'}`} card text-center mt-5 rotate-todolist style={{ width: "40rem", overflowY: "auto", height: "26rem", backgroundColor: "#F2B39D", borderRadius: "80px 20px", border: "8px solid #EFDECD", transition: "transform 0.3s ease", marginTop: "80px" }} onClick={toggleRotation}>
-            <span className="title text-center"><i>Todo List</i></span>
+            <span className="title text-center mt-3 mb-2"><i>DAILY TASKS</i></span>
             <ul className="list-group list-group-flush ms-5 me-5 mb-5 border border-start border-end">
                 <li className=" box list-group-item border border-top">
                     <input className="d-flex ms-4 border-0"
