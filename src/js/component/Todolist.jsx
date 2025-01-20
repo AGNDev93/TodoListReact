@@ -96,7 +96,7 @@ const TodoList = () => {
             <span className="title text-center mt-3 mb-2"><i>DAILY TASKS</i></span>
             <ul className="list-group list-group-flush ms-5 me-5 mb-5 border border-start border-end">
                 <li className=" box list-group-item border border-top">
-                    <input className="d-flex ms-4 pe-4 border-0"
+                    <input className="d-flex border-0"
                         type="text"
                         onChange={(e) => setInputValue(e.target.value)}
                         value={inputValue}
