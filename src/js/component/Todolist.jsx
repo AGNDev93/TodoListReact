@@ -93,25 +93,27 @@ const TodoList = () => {
 
     return (
         <div className={`card ${isRotating ? 'rotate-todolist' : 'no-rotation'}`} mt-3 style={{ width: "40rem", overflowY: "auto", height: "26rem", backgroundColor: "#F2B39D", borderRadius: "80px 20px", border: "8px solid #EFDECD", transition: "transform 0.3s ease", marginTop: "80px" }} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <span className="title text-center mt-3 mb-2"><i>DAILY TASKS</i></span>
-            <ul className="list-group list-group-flush ms-5 me-5 mb-5 border border-start border-end">
-                <li className=" box list-group-item border border-top">
-                    <input className="d-flex ps-1 text-center border-0"
-                        type="text"
-                        onChange={(e) => setInputValue(e.target.value)}
-                        value={inputValue}
-                        onKeyDown={(e) => {
-                            if (e.key === "Enter" && inputValue.trim()) {
-                                createTodo();
-                            }
-                        }}
-                        placeholder="What needs to be done?"></input>
-                </li>
+            <span className="title text-center mt-3 mb-3"><i>DAILY TASKS</i></span>
+            <div className="d-flex justify-content-center mb-4">
+                <input className="d-flex text-center ps-4 pe-4 pt-1 pb-1"
+                    type="text"
+                    style={{ borderRadius: "12px", border: "3px solid rgba(0, 123, 255, 0.8)" }}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    value={inputValue}
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter" && inputValue.trim()) {
+                            createTodo();
+                        }
+                    }}
+                    placeholder="What's your task?"
+                />
+            </div>
+            <ul className="list-group list-group-flush ms-5 me-5 mb-5 border border-start border-end" style={{ borderRadius: "12px" }}>
                 {todos.length === 0 ? (
-                    <li className="list-group-item tasks d-flex ps-4 text-secondary"> No hay tareas, añadir tareas</li>
+                    <li className="list-group-item tasks d-flex text-secondary"> No hay tareas, añadir tareas</li>
                 ) : (
                     todos.map((item) => (
-                        <li key={item.id} className="list-group-item todo-item d-flex ps-4 text-secondary">
+                        <li key={item.id} className="list-group-item todo-item d-flex text-secondary">
                             {item.label}
                             <button
                                 className="remove text-success"
