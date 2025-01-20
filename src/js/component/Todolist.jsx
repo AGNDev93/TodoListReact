@@ -26,14 +26,19 @@ const TodoList = () => {
                 method: "GET",
                 headers: { "Content-Type": "application/json" },
             })
-            if (response.status == 404) {
-                createUser();
+            if (response.status === 404) {
+                await createUser();
             }
-            const data = await response.json()
-            setTodos(data.todos);
+            const data = await response.json();
+            if (data && Array.isArray(data.todos)) {
+                setTodos(data.todos);
+            } else {
+                console.log('No todos found in the response:', data);
+                setTodos([]);
+            }
             return true;
         } catch (error) {
-            console.log("Error: ", error)
+            console.log("Error: ", error);
             return false;
         }
     }
@@ -48,9 +53,7 @@ const TodoList = () => {
                     "is_done": false
                 })
             })
-
             const data = await response.json()
-            // console.log(data);
             getTodos();
             setInputValue("");
             return true;
@@ -89,11 +92,11 @@ const TodoList = () => {
     }
 
     return (
-        <div className={`card ${isRotating ? 'rotate-todolist' : 'no-rotation'}`} style={{ width: "40rem", overflowY: "auto", height: "26rem", backgroundColor: "#F2B39D", borderRadius: "80px 20px", border: "8px solid #EFDECD", transition: "transform 0.3s ease", marginTop: "80px" }} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <div className={`card ${isRotating ? 'rotate-todolist' : 'no-rotation'}`} mt-3 style={{ width: "40rem", overflowY: "auto", height: "26rem", backgroundColor: "#F2B39D", borderRadius: "80px 20px", border: "8px solid #EFDECD", transition: "transform 0.3s ease", marginTop: "80px" }} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             <span className="title text-center mt-3 mb-2"><i>DAILY TASKS</i></span>
             <ul className="list-group list-group-flush ms-5 me-5 mb-5 border border-start border-end">
                 <li className=" box list-group-item border border-top">
-                    <input className="d-flex ms-4 border-0"
+                    <input className="d-flex ms-4 me-4 border-0"
                         type="text"
                         onChange={(e) => setInputValue(e.target.value)}
                         value={inputValue}
