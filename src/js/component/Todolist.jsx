@@ -96,7 +96,7 @@ const TodoList = () => {
             <span className="title text-center mt-3 mb-2"><i>DAILY TASKS</i></span>
             <ul className="list-group list-group-flush ms-5 me-5 mb-5 border border-start border-end">
                 <li className=" box list-group-item border border-top">
-                    <input className="d-flex border-0"
+                    <input className="d-flex ps-1 text-center border-0"
                         type="text"
                         onChange={(e) => setInputValue(e.target.value)}
                         value={inputValue}
@@ -108,10 +108,10 @@ const TodoList = () => {
                         placeholder="What needs to be done?"></input>
                 </li>
                 {todos.length === 0 ? (
-                    <li className="list-group-item tasks d-flex ps-5 text-secondary"> No hay tareas, añadir tareas</li>
+                    <li className="list-group-item tasks d-flex ps-4 text-secondary"> No hay tareas, añadir tareas</li>
                 ) : (
                     todos.map((item) => (
-                        <li key={item.id} className="list-group-item todo-item d-flex ps-5 text-secondary">
+                        <li key={item.id} className="list-group-item todo-item d-flex ps-4 text-secondary">
                             {item.label}
                             <button
                                 className="remove text-success"

@@ -43,4 +43,6 @@
     animation: none;
 }
 
-
+input::placeholder{
+    text-align: center;
+}
