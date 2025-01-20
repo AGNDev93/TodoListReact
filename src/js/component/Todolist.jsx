@@ -97,7 +97,7 @@ const TodoList = () => {
             <div className="d-flex justify-content-center mb-4">
                 <input className="d-flex text-center ps-4 pe-4 pt-1 pb-1"
                     type="text"
-                    style={{ borderRadius: "12px", border: "3px solid rgba(0, 123, 255, 0.8)" }}
+                    style={{ borderRadius: "12px", border: "2px solid #8AC7D8" }}
                     onChange={(e) => setInputValue(e.target.value)}
                     value={inputValue}
                     onKeyDown={(e) => {
@@ -110,10 +110,10 @@ const TodoList = () => {
             </div>
             <ul className="list-group list-group-flush ms-5 me-5 mb-5 border border-start border-end" style={{ borderRadius: "12px" }}>
                 {todos.length === 0 ? (
-                    <li className="list-group-item tasks d-flex text-secondary"> No hay tareas, añadir tareas</li>
+                    <li className="list-group-item tasks d-flex text-secondary" style={{ border: "2px solid #8AC7D8", borderBottom: "None" }}> No hay tareas, añadir tareas</li>
                 ) : (
                     todos.map((item) => (
-                        <li key={item.id} className="list-group-item todo-item d-flex text-secondary">
+                        <li key={item.id} className="list-group-item todo-item d-flex text-secondary" style={{ border: "2px solid #8AC7D8", borderBottom: "none" }}>
                             {item.label}
                             <button
                                 className="remove text-success"
@@ -123,7 +123,7 @@ const TodoList = () => {
                             </button>
                         </li>
                     )))}
-                <li className="itemcounter list-group-item d-flex ms-0 text-secondary"> {todos.length} item left</li>
+                <li className="itemcounter list-group-item d-flex ms-0 text-secondary" style={{ border: "2px solid #8AC7D8", borderTop: "2px solid #B0B0B0" }}> {todos.length} item left</li>
             </ul>
         </div>
     );
