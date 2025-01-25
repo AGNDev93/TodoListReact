@@ -110,7 +110,7 @@ const TodoList = () => {
             </div>
             <ul className="list-group list-group-flush ms-5 me-5 mb-5 border border-start border-end" style={{ borderRadius: "12px" }}>
                 {todos.length === 0 ? (
-                    <li className="list-group-item tasks d-flex text-secondary" style={{ border: "2px solid #8AC7D8", borderBottom: "None" }}> No hay tareas, añadir tareas</li>
+                    <li className="list-group-item tasks d-flex text-secondary" style={{ border: "2px solid #8AC7D8", borderBottom: "None" }}> No tasks, add some !!</li>
                 ) : (
                     todos.map((item) => (
                         <li key={item.id} className="list-group-item todo-item d-flex text-secondary" style={{ border: "2px solid #8AC7D8", borderBottom: "none" }}>
